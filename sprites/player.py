@@ -1,5 +1,6 @@
-from sprites.sprite import Sprite
+from sprites.sprite import Sprite, Direction
 import arcade
+from helpers import directionToAngle
 
 class Player(Sprite):
   radius = 300
@@ -11,16 +12,25 @@ class Player(Sprite):
 
   def __init__(self, x, y):
     super().__init__(x, y)
+    self.texture1 = arcade.load_texture("./images/person1.png")
+    self.texture2 = arcade.load_texture("./images/person2.png")
 
   def draw(self, arcade: arcade, dx: int, dy: int):
     # Draw the face
-    texture = arcade.load_texture("./images/test.bmp")
+
+    texture = self.texture1 if int(self.distTraveled / 50) % 2 == 0 else self.texture2
+
+    direction = self.getFacingDirection()
+
+    angle = directionToAngle(direction)
+
     arcade.draw_texture_rectangle(
       (self.x + dx) , # + self.w/2,
       (self.y + dy), # + self.h/2,
       self.w,
       self.h,
-      texture
+      texture,
+      angle
     )
 
   def update(self, delta_time):

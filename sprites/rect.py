@@ -2,14 +2,11 @@ from sprites import Sprite
 import arcade
 
 class Rect(Sprite):
-
-
   def __init__(self, x, y, w, h, imgPath):
     super().__init__(x, y)
     self.w = w
     self.h = h
     self.texture = arcade.load_texture(imgPath)
-
 
   def draw(self, arcade: arcade, dx: int, dy: int):
     arcade.draw_texture_rectangle(
