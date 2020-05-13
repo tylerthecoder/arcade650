@@ -1,0 +1,20 @@
+{
+  "sprites": [
+    {
+      "type": "rect",
+      "x": 400,
+      "y": 400,
+      "w": 200,
+      "h": 200,
+      "imgPath": "./images/floor.jpg"
+    },
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 5000,
+      "h": 5000,
+      "imgPath": "./images/floor.jpg"
+    }
+  ]
+}
