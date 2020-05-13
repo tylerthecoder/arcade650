@@ -38,7 +38,7 @@ class World():
 
   def update(self, delta_time: int):
     for sprite in self.sprites:
-      sprite.update(delta_time);
+      sprite.update(delta_time)
 
   def draw(self, arcade):
     for sprite in self.sprites:
