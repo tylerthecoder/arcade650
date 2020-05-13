@@ -1,6 +1,7 @@
 import arcade
 import os
-import sprites.face
+
+from world import World
 from controllers.keyboard import KeyboardController
 
 SPRITE_SCALING = 0.5
@@ -15,12 +16,11 @@ VIEWPORT_MARGIN = 40
 
 MOVEMENT_SPEED = 5
 
-
 class MyGame(arcade.Window):
     """ Main application class. """
 
-    face = sprites.face.FaceSprite()
-    controller = KeyboardController(face)
+    world = World(SCREEN_WIDTH, SCREEN_HEIGHT)
+    controller = KeyboardController(world.player)
 
     def __init__(self):
         """
@@ -46,7 +46,7 @@ class MyGame(arcade.Window):
         self.example_image = arcade.load_texture(":resources:images/tiles/boxCrate_double.png")
 
     def update(self, delta_time):
-        self.face.update(delta_time)
+        self.world.update(delta_time)
         self.controller.update()
 
 
@@ -55,7 +55,7 @@ class MyGame(arcade.Window):
 
         left, screen_width, bottom, screen_height = self.get_viewport()
 
-        self.face.draw(arcade=arcade);
+        self.world.draw(arcade)
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """

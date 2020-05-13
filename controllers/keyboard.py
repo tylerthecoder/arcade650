@@ -1,4 +1,4 @@
-from sprites.face import FaceSprite
+from sprites import Sprite
 import arcade.key as keys
 
 
@@ -6,7 +6,7 @@ class KeyboardController():
   keys = set()
   lastKey = ""
 
-  def __init__(self, sprite: FaceSprite):
+  def __init__(self, sprite: Sprite):
     self.sprite = sprite
 
   def update(self):
