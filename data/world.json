@@ -1,44 +1,92 @@
 {
-  "sprites": [
+  "rooms": [
     {
-      "type": "rect",
-      "x": 400,
-      "y": 400,
-      "w": 200,
-      "h": 200,
-      "imgPath": "./images/floor.jpg"
+      "sprites": [
+        {
+          "type": "floor",
+          "x": 0,
+          "y": 0,
+          "w": 5000,
+          "h": 5000,
+          "imgPath": "./images/floor.jpg"
+        },
+        {
+          "type": "rect",
+          "x": -2550,
+          "y": 0,
+          "w": 100,
+          "h": 5000,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": 0,
+          "y": 2550,
+          "w": 5000,
+          "h": 100,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": 2550,
+          "y": 0,
+          "w": 100,
+          "h": 5000,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": -1300,
+          "y": -2550,
+          "w": 2400,
+          "h": 100,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": 1300,
+          "y": -2550,
+          "w": 2400,
+          "h": 100,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "door",
+          "x": 0,
+          "y": -2550,
+          "w": 200,
+          "h": 100,
+          "imgPath": "./images/door.jpg"
+        }
+      ]
     },
     {
-      "type": "rect",
-      "x": 0,
-      "y": 0,
-      "w": 5000,
-      "h": 5000,
-      "imgPath": "./images/floor.jpg"
-    },
-    {
-      "type": "rect",
-      "x": -2550,
-      "y": 0,
-      "w": 100,
-      "h": 5000,
-      "imgPath": "./images/wall.jpg"
-    },
-    {
-      "type": "rect",
-      "x": 0,
-      "y": 2550,
-      "w": 5000,
-      "h": 100,
-      "imgPath": "./images/wall.jpg"
-    },
-    {
-      "type": "rect",
-      "x": 2550,
-      "y": 0,
-      "w": 100,
-      "h": 5000,
-      "imgPath": "./images/wall.jpg"
+      "sprites": [
+        {
+          "type": "door",
+          "x": 0,
+          "y": -2550,
+          "w": 200,
+          "h": 100,
+          "imgPath": "./images/door.jpg"
+        },
+        {
+          "type": "rect",
+          "x": -1300,
+          "y": -2550,
+          "w": 2400,
+          "h": 100,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": 1300,
+          "y": -2550,
+          "w": 2400,
+          "h": 100,
+          "imgPath": "./images/wall.jpg"
+        }
+      ]
     }
   ]
 }

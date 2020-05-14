@@ -9,6 +9,7 @@ class Player(Sprite):
   w = 100
   h = 300
   scale = .2
+  currRoom = 0
   noLeft = False
   noRight = False
   noUp = False
@@ -37,28 +38,6 @@ class Player(Sprite):
       angle
     )
 
-    if (self.x + self.w / 2 >= 2500):
-      self.noRight = True
-    else:
-      self.noRight = False
-
-    if (self.x - self.w / 2 <= 2500):
-      self.noLeft = True
-    else:
-      self.noLeft = False
-
-    if (self.y + self.h / 2 >= 2500):
-      self.noUp = True
-    else:
-      self.noUp = False
-
-    if (self.y - self.h / 2 <= 2500):
-      self.noDown = True
-    else:
-      self.noDown = False
-
   def update(self, delta_time):
-    if (self.x < 2500 and self.x > -2500):
-      self.x += self.vx * delta_time
-    if (self.y < 2500 and self.y > -2500):
-      self.y += self.vy * delta_time
+    self.x += self.vx * delta_time
+    self.y += self.vy * delta_time
