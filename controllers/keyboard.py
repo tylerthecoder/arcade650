@@ -1,13 +1,9 @@
-from sprites import Player
 import arcade.key as keys
+from controllers.controller import Controller
 
-
-class KeyboardController():
+class KeyboardController(Controller):
   keys = set()
   lastKey = ""
-
-  def __init__(self, sprite: Player):
-    self.sprite = sprite
 
   def update(self):
     if keys.W in self.keys:

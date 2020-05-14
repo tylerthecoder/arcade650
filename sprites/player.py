@@ -14,23 +14,23 @@ class Player(Sprite):
   noUp = False
   noDown = False
 
-  def __init__(self, x, y):
+  def __init__(self, x, y, imgPath1, imgPath2):
     super().__init__(x, y)
-    self.texture1 = arcade.load_texture("./images/person1.png")
-    self.texture2 = arcade.load_texture("./images/person2.png")
+    self.texture1 = arcade.load_texture(imgPath1)
+    self.texture2 = arcade.load_texture(imgPath2)
 
   def draw(self, arcade: arcade, dx: int, dy: int):
     # Draw the face
 
-    texture = self.texture1 if int(self.distTraveled / 50) % 2 == 0 else self.texture2
+    texture = self.texture1 if int(self.distTraveled / 500) % 2 == 0 else self.texture2
 
     direction = self.getFacingDirection()
 
     angle = directionToAngle(direction)
 
     arcade.draw_texture_rectangle(
-      (self.x + dx) , # + self.w/2,
-      (self.y + dy), # + self.h/2,
+      (self.x + dx),
+      (self.y + dy),
       self.w,
       self.h,
       texture,
