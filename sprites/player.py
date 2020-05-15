@@ -9,7 +9,12 @@ class Player(Sprite):
   w = 100
   h = 300
   scale = .2
+
   currRoom = 0
+  prevRoom = 0
+  enterDoorX = -1
+  enterDoorY = -1
+
   noLeft = False
   noRight = False
   noUp = False

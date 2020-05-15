@@ -56,7 +56,8 @@
           "y": -2550,
           "w": 200,
           "h": 100,
-          "imgPath": "./images/door.jpg"
+          "imgPath": "./images/door.jpg",
+          "connectionRoom": 1
         }
       ]
     },
@@ -68,7 +69,16 @@
           "y": -2550,
           "w": 200,
           "h": 100,
-          "imgPath": "./images/door.jpg"
+          "imgPath": "./images/door.jpg",
+          "connectionRoom": 0
+        },
+        {
+          "type": "floor",
+          "x": 0,
+          "y": -5100,
+          "w": 5000,
+          "h": 5000,
+          "imgPath": "./images/floor.jpg"
         },
         {
           "type": "rect",
@@ -83,6 +93,30 @@
           "x": 1300,
           "y": -2550,
           "w": 2400,
+          "h": 100,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": 2550,
+          "y": -5100,
+          "w": 100,
+          "h": 5000,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": -2550,
+          "y": -5100,
+          "w": 100,
+          "h": 5000,
+          "imgPath": "./images/wall.jpg"
+        },
+        {
+          "type": "rect",
+          "x": 0,
+          "y": -7650,
+          "w": 5000,
           "h": 100,
           "imgPath": "./images/wall.jpg"
         }

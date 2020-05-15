@@ -4,11 +4,12 @@ import arcade
 class Door(Sprite):
 
 
-  def __init__(self, x, y, w, h, imgPath):
+  def __init__(self, x, y, w, h, imgPath, connectionRoom):
     super().__init__(x, y)
     self.w = w
     self.h = h
     self.texture = arcade.load_texture(imgPath)
+    self.connectionRoom = connectionRoom
 
 
   def draw(self, arcade: arcade, dx: int, dy: int):

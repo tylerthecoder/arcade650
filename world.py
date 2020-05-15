@@ -16,34 +16,36 @@ class World():
 
   def loadFromFile(self):
     f = open('./data/world.json')
-    data = json.load(f);
-    for sprite in data['rooms'][self.mainSprite.currRoom]['sprites']:
-      if sprite["type"] == "rect":
-        self.addSprite(Rect(
-          sprite["x"],
-          sprite["y"],
-          sprite["w"],
-          sprite["h"],
-          sprite["imgPath"]
-        ))
+    data = json.load(f)
+    for room in data['rooms']:
+      for sprite in room['sprites']:
+        if sprite["type"] == "rect":
+          self.addSprite(Rect(
+            sprite["x"],
+            sprite["y"],
+            sprite["w"],
+            sprite["h"],
+            sprite["imgPath"]
+          ))
 
-      if sprite["type"] == "floor":
-        self.addSprite(Floor(
-          sprite["x"],
-          sprite["y"],
-          sprite["w"],
-          sprite["h"],
-          sprite["imgPath"]
-        ))
+        if sprite["type"] == "floor":
+          self.addSprite(Floor(
+            sprite["x"],
+            sprite["y"],
+            sprite["w"],
+            sprite["h"],
+            sprite["imgPath"]
+          ))
 
-      if sprite["type"] == "door":
-        self.addSprite(Door(
-          sprite["x"],
-          sprite["y"],
-          sprite["w"],
-          sprite["h"],
-          sprite["imgPath"]
-        ))
+        if sprite["type"] == "door":
+          self.addSprite(Door(
+            sprite["x"],
+            sprite["y"],
+            sprite["w"],
+            sprite["h"],
+            sprite["imgPath"],
+            sprite["connectionRoom"]
+          ))
 
   def __init__(self, sw: int, sh: int):
     self.player = Player(
@@ -110,6 +112,8 @@ class World():
         for sprite in self.sprites:
           if (isinstance(sprite, Rect)):
             self.detectCollision(sprite, player)
+          if (isinstance(sprite, Door)):
+            self.detectRoomMove(sprite, player)
 
     # Draw new positions of sprites
     for sprite in self.sprites:
@@ -142,5 +146,29 @@ class World():
     if (playerBottom <= rectTop and playerBottom >= rect.y):
       if ( not ((playerRight <= rectLeft) or (playerLeft >= rectRight)) ):
         player.noDown = True
+
+  def detectRoomMove(self, door: Door, player: Player):
+    doorLeft = door.x - door.w / 2
+    doorRight = door.x + door.w / 2
+    doorTop = door.y + door.h / 2
+    doorBottom = door.y - door.h / 2
+
+    if (player.x >= doorLeft and player.x <= doorRight and player.y <= doorTop and player.y >= doorBottom and player == self.mainSprite):
+      player.prevRoom = player.currRoom
+      player.currRoom = -1
+      player.enterDoorX = player.x
+      player.enterDoorY = player.y
+    elif (player == self.mainSprite and player.currRoom == -1):
+      # Moved through the door
+      if ( ((player.x - door.w / 2) > player.enterDoorX) or ((player.x + door.w / 2) < player.enterDoorX) or ((player.y - door.h / 2) > player.enterDoorY) or ((player.y + door.h / 2) < player.enterDoorY) ):
+        player.enterDoorX = -1
+        player.enterDoorY = -1
+        player.currRoom = door.connectionRoom
+
+      # Went back into original room (still not perfect, but I was just trying to make this work for adding new sprites and dumping old onesw)
+      else:
+        player.enterDoorX = -1
+        player.enterDoorY = -1
+        player.currRoom = player.prevRoom
 
 
