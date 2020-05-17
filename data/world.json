@@ -1,15 +1,16 @@
 {
   "rooms": [
     {
+      "id": "loft",
+      "floor": {
+        "type": "floor",
+        "x": 0,
+        "y": 0,
+        "w": 5000,
+        "h": 5000,
+        "imgPath": "./images/floor.jpg"
+      },
       "sprites": [
-        {
-          "type": "floor",
-          "x": 0,
-          "y": 0,
-          "w": 5000,
-          "h": 5000,
-          "imgPath": "./images/floor.jpg"
-        },
         {
           "type": "rect",
           "x": -2550,
@@ -62,6 +63,15 @@
       ]
     },
     {
+      "id": "den",
+      "floor": {
+        "type": "floor",
+        "x": 0,
+        "y": -5100,
+        "w": 5000,
+        "h": 5000,
+        "imgPath": "./images/floor.jpg"
+      },
       "sprites": [
         {
           "type": "door",
@@ -71,14 +81,6 @@
           "h": 100,
           "imgPath": "./images/door.jpg",
           "connectionRoom": 0
-        },
-        {
-          "type": "floor",
-          "x": 0,
-          "y": -5100,
-          "w": 5000,
-          "h": 5000,
-          "imgPath": "./images/floor.jpg"
         },
         {
           "type": "rect",
@@ -120,6 +122,20 @@
           "h": 100,
           "imgPath": "./images/wall.jpg"
         }
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "type": "door",
+      "x": 0,
+      "y": -2550,
+      "w": 200,
+      "h": 100,
+      "imgPath": "./images/door.jpg",
+      "rooms": [
+        "den",
+        "loft"
       ]
     }
   ]

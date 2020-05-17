@@ -1,18 +1,15 @@
 import arcade
 import os
-
 from world import World
 from controllers.keyboard import KeyboardController
 
 SPRITE_SCALING = 0.5
-
 SCREEN_TITLE = "Full Screen Example"
-
 # How many pixels to keep as a minimum margin between the charactetr
 # and the edge of the screen.
 VIEWPORT_MARGIN = 40
-
 MOVEMENT_SPEED = 5
+FULLSCREEN = True
 
 class MyGame(arcade.Window):
     """ Main application class. """
@@ -21,7 +18,7 @@ class MyGame(arcade.Window):
 
 
     def __init__(self):
-        super().__init__(600, 600, SCREEN_TITLE, fullscreen=True)
+        super().__init__(600, 600, SCREEN_TITLE, fullscreen=FULLSCREEN)
 
         file_path = os.path.dirname(os.path.abspath(__file__))
         os.chdir(file_path)

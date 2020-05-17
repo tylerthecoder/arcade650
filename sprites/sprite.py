@@ -1,5 +1,6 @@
 import arcade
 from helpers import Direction
+from typing import Set
 
 class Sprite():
   def __init__(self, x: int, y: int):
@@ -9,6 +10,10 @@ class Sprite():
     self.lastY = y;
     # for calculating animations
     self.distTraveled = 0
+    # for collision detection
+    self.isTouching: Set[Direction] = set();
+
+    self.tangible = True
 
   def draw(self, arcade: arcade):
     pass
